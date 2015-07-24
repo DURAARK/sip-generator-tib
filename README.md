@@ -24,8 +24,11 @@ For assistance please type:
 JAVA -jar SIP _Generator.jar -h
 ######################################################################################################################
 Java version: 1.7.0_79
+
 Third party libs: Exlibris SDK 4.0
+
 Eclipse version: Spring Tool Suite  Version: 3.6.4 (LUNA)
+
 Eclipse project art: Java Maven Projekt
 
 
