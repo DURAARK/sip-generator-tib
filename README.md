@@ -23,9 +23,9 @@ JAVA -jar SIP _Generator.jar D:\input D:\output /exlibris1/transfer/tib_extern_d
 For assistance please type:
 JAVA -jar SIP _Generator.jar -h
 ######################################################################################################################
-Java Version	      1.7.0_79
-Third party libs	      Exlibris SDK 4.0
-Eclipse Version	      Spring Tool Suite  Version: 3.6.4 (LUNA)
-Eclipse Project Art	Java Maven Projekt
+Java version: 1.7.0_79
+Third party libs: Exlibris SDK 4.0
+Eclipse version: Spring Tool Suite  Version: 3.6.4 (LUNA)
+Eclipse project art: Java Maven Projekt
 
 
