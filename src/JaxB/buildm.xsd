@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- W3C Schema erstellt mit XMLSpy v2015 rel. 4 (x64) (http://www.altova.com) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="cost">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="100000000"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="name">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Cologne Cathedral"/>
+				<xs:enumeration value="Scan 8.Sept.2013 Cologne Cathedral"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="event">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="CAD Fair 2014"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="owner" type="xs:string"/>
+	<xs:element name="buildm">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="physicalAsset"/>
+				<xs:element ref="digitalObject"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="format">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Undedefined"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="creator">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="John Smith"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="hasPart">
+		<xs:simpleType>
+			<xs:restriction base="xs:anyURI">
+				<xs:enumeration value="ark:/12148/btv1b8448858m"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="hasType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Scan"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="license">
+		<xs:simpleType>
+			<xs:restriction base="xs:anyURI">
+				<xs:enumeration value="https://creativecommons.org/publicdomain/zero/1.0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="filesize">
+		<xs:simpleType>
+			<xs:restriction base="xs:long">
+				<xs:enumeration value="131342352352"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="function">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="religious building; cathedral"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="isPartOf">
+		<xs:simpleType>
+			<xs:restriction base="xs:anyURI">
+				<xs:enumeration value="ark:/12148/btv1b8448858m"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="latitude">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="50.9411111"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="location">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Domhügel"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="unitCode">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="mm"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="architect">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Meister Gerhard; Barbara Schock-Werner"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="longitude">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="6.95805555"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="startDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="1248"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Identifier">
+		<xs:simpleType>
+			<xs:restriction base="xs:anyURI">
+				<xs:enumeration value="UTS:CB71.02.04"/>
+				<xs:enumeration value="ark:/12148/btv1b8448858m"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="floorCount">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="6"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="provenance" type="xs:string"/>
+	<xs:element name="contributor">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Gerhard Richter"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="dateCreated">
+		<xs:simpleType>
+			<xs:restriction base="xs:dateTime">
+				<xs:enumeration value="2013-09-08T00:35:00"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="description" type="xs:string"/>
+	<xs:element name="buildingArea">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="7914 sqm"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="addressRegion">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="NRW - North Rhine-Westphalia"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="digitalObject">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Identifier"/>
+				<xs:element ref="creator"/>
+				<xs:element ref="name"/>
+				<xs:element ref="dateCreated"/>
+				<xs:element ref="filesize"/>
+				<xs:element ref="isPartOf"/>
+				<xs:element ref="hasPart"/>
+				<xs:element ref="format"/>
+				<xs:element ref="hasType"/>
+				<xs:element ref="hasFormatDetails"/>
+				<xs:element ref="description"/>
+				<xs:element ref="provenance"/>
+				<xs:element ref="license"/>
+				<xs:element ref="unitCode"/>
+				<xs:element ref="levelOfDetail"/>
+				<xs:element ref="event"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="levelOfDetail">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="CityGML LOD 3"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="numberOfRooms">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="36"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="physicalAsset">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Identifier"/>
+				<xs:element ref="name"/>
+				<xs:element ref="latitude"/>
+				<xs:element ref="longitude"/>
+				<xs:element ref="owner"/>
+				<xs:element ref="buildingArea"/>
+				<xs:element ref="floorCount"/>
+				<xs:element ref="numberOfRooms"/>
+				<xs:element ref="function"/>
+				<xs:element ref="architecturalStyle"/>
+				<xs:element ref="description"/>
+				<xs:element ref="location"/>
+				<xs:element ref="streetAddress"/>
+				<xs:element ref="postalCodeStart"/>
+				<xs:element ref="postalCodeEnd"/>
+				<xs:element ref="postOfficeBoxNumber"/>
+				<xs:element ref="addressRegion"/>
+				<xs:element ref="addressCountry"/>
+				<xs:element ref="postalLocality"/>
+				<xs:element ref="architect"/>
+				<xs:element ref="contributor"/>
+				<xs:element ref="startDate"/>
+				<xs:element ref="completionDate"/>
+				<xs:element ref="constructionTime"/>
+				<xs:element ref="rebuildingDate"/>
+				<xs:element ref="modificationDetails"/>
+				<xs:element ref="cost"/>
+				<xs:element ref="rightsDetails"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="postalCodeEnd">
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:enumeration value="50668"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="rightsDetails" type="xs:string"/>
+	<xs:element name="streetAddress">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Domkloster 4"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="addressCountry">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Germany"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="completionDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="1880"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="postalLocality">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Cologne"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="rebuildingDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:date">
+				<xs:enumeration value="1944-01-01"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="postalCodeStart">
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:enumeration value="50667"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="constructionTime">
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:enumeration value="230888"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="hasFormatDetails">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="binary; E57"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="architecturalStyle">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="gothic; neoclassicism"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="modificationDetails" type="xs:string"/>
+	<xs:element name="postOfficeBoxNumber">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="1234"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

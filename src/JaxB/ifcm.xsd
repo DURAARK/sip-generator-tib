@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- W3C Schema erstellt mit XMLSpy v2015 rel. 4 (x64) (http://www.altova.com) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="ifcm">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="header"/>
+				<xs:element ref="ifcparameters"/>
+				<xs:element ref="quantities"/>
+				<xs:element ref="informationMetric"/>
+				<xs:element ref="Dependencies"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="name">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Plan Hartnett Hall, Minot State University Campus"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="author">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="John Doe"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="header">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="name"/>
+				<xs:element ref="creationDate"/>
+				<xs:element ref="author"/>
+				<xs:element ref="organization"/>
+				<xs:element ref="preprocessor"/>
+				<xs:element ref="originatingSystem"/>
+				<xs:element ref="authorization"/>
+				<xs:element ref="fileSchema"/>
+				<xs:element ref="viewDefinition"/>
+				<xs:element ref="exportOptions"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="doorCount">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="72"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ifcSiUnit">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="(LENGTHUNIT,METRE)"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="pipeCount">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="34"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="roomCount">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="64"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="wallCount">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="420"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="fileSchema">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="IFC2x3"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="floorCount">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="4"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="quantities">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="floorCount"/>
+				<xs:element ref="roomCount"/>
+				<xs:element ref="wallCount"/>
+				<xs:element ref="windowsCount"/>
+				<xs:element ref="doorCount"/>
+				<xs:element ref="pipeCount"/>
+				<xs:element ref="columnCount"/>
+				<xs:element ref="numberOfComponents"/>
+				<xs:element ref="numberOfRelations"/>
+				<xs:element ref="numberOfActors"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="columnCount">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="60"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Dependencies">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="webResourceLink"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="creationDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:dateTime">
+				<xs:enumeration value="2013-05-28T10:23:19"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="organization">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Architecture and Construction Ltd."/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="preprocessor">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="DDS-IFC v2.0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="windowsCount">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="105"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="authorization">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Fred Miller, Architecture and Construction Ltd."/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="exportOptions" type="xs:string"/>
+	<xs:element name="ifcparameters">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ifcApplication"/>
+				<xs:element ref="IfcGeometricRepresentationContext"/>
+				<xs:element ref="ifcSiUnit"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ifcApplication">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="ArchiCAD 7.0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="numberOfActors">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="5"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="viewDefinition">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="FMHandOverView"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="webResourceLink" type="xs:anyURI"/>
+	<xs:element name="informationMetric">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="numberOfEntityTypesUsed"/>
+				<xs:element ref="numberOfTotalEntitiesUsed"/>
+				<xs:element ref="optionalAttributes"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="numberOfRelations">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="5218"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="originatingSystem">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="DDS-CAD Version 8.0 Win32 build 29/6-2012"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="numberOfComponents">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="11423"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="optionalAttributes">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="57"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="numberOfEntityTypesUsed">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="364"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="numberOfTotalEntitiesUsed">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="2954"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="IfcGeometricRepresentationContext">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="(&apos;Model&apos;,3,1.00000000000000E-6)"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

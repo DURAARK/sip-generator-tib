@@ -1,0 +1,871 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- W3C Schema erstellt mit XMLSpy v2015 rel. 4 (x64) (http://www.altova.com) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="w">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="0.70283815264201144"/>
+				<xs:enumeration value="0.99996960774189081"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="x">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="-0.0074585516927261801"/>
+				<xs:enumeration value="0.077691052038131911"/>
+				<xs:enumeration value="89.951072690000004"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="y">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="-0.0022701539983015365"/>
+				<xs:enumeration value="0.088163333920523737"/>
+				<xs:enumeration value="1.8420018"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="z">
+		<xs:simpleType>
+			<xs:restriction base="xs:double">
+				<xs:enumeration value="0"/>
+				<xs:enumeration value="0.070127669443617591"/>
+				<xs:enumeration value="2.0E-8"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="e57m">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="E57root"/>
+				<xs:element ref="e57scan"/>
+				<xs:element ref="e57image"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="guid">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="{76BD148C-D22A-4FE3-8CB2-0FB01F96698B}"/>
+				<xs:enumeration value="{7E3C7C9C-EFCB-4F5A-9A6F-98A08F72FB1B}"/>
+				<xs:enumeration value="{F0B3C105-325B-4FC9-9E01-3130153F9800}"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="name">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="parking000"/>
+				<xs:enumeration value="parking000image"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="pose">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="rotation"/>
+				<xs:element ref="translation"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="angles">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="angle_minimum"/>
+				<xs:element ref="angle_maximum"/>
+				<xs:element ref="angle_scaled_integer"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="radius">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="0.007666681778157584"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="E57root">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="guid"/>
+				<xs:element ref="version"/>
+				<xs:element ref="creation_datetime"/>
+				<xs:element ref="coordinate_metadata"/>
+				<xs:element ref="scan_count"/>
+				<xs:element ref="image_count"/>
+				<xs:element ref="scan_size"/>
+				<xs:element ref="image_size"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="e57scan">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="guid"/>
+				<xs:element ref="name"/>
+				<xs:element ref="original_guids"/>
+				<xs:element ref="description"/>
+				<xs:element ref="sensor_vendor"/>
+				<xs:element ref="sensor_model"/>
+				<xs:element ref="sensor_serial_number"/>
+				<xs:element ref="sensor_hardware_version"/>
+				<xs:element ref="sensor_software_version"/>
+				<xs:element ref="sensor_firmware_version"/>
+				<xs:element ref="temperature"/>
+				<xs:element ref="relative_humidity"/>
+				<xs:element ref="atmospheric_pressure"/>
+				<xs:element ref="acquisition_start"/>
+				<xs:element ref="acquisition_end"/>
+				<xs:element ref="pose"/>
+				<xs:element ref="index_bounds"/>
+				<xs:element ref="cartesian_bounds"/>
+				<xs:element ref="sphericalbounds"/>
+				<xs:element ref="intensity_limits"/>
+				<xs:element ref="color_limits"/>
+				<xs:element ref="pointSize"/>
+				<xs:element ref="point_fields"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="version">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="1"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="e57image">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="name"/>
+				<xs:element ref="guid"/>
+				<xs:element ref="representation"/>
+				<xs:element ref="description"/>
+				<xs:element ref="acquisition_datetime"/>
+				<xs:element ref="associated_data3D_guid"/>
+				<xs:element ref="sensor_vendor"/>
+				<xs:element ref="sensor_model"/>
+				<xs:element ref="sensor_serial_number"/>
+				<xs:element ref="pose"/>
+				<xs:element ref="visual_ref_representation"/>
+				<xs:element ref="spherical_representation"/>
+				<xs:element ref="pinhole_representation"/>
+				<xs:element ref="cylindrical_representation"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="rotation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="w"/>
+				<xs:element ref="x"/>
+				<xs:element ref="y"/>
+				<xs:element ref="z"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="pointSize">
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:enumeration value="26602731"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="scan_size">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="10"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="x_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="57.134830999999998"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="x_minimum">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="-68.432470999999993"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="y_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="70.512130999999997"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="y_minimum">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="-59.897230999999998"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="z_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="3.779801"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="z_minimum">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="-2.0202709999999997"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="image_size">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="255"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="scan_count">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="5"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="col_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="8213"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="col_minimum">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="description" type="xs:string"/>
+	<xs:element name="image_count">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="5"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="image_width">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="8187"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="pixel_width">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="0.0076745772193576565"/>
+				<xs:enumeration value="1.5"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="point_range">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="point_range_minimum"/>
+				<xs:element ref="point_range_maximum"/>
+				<xs:element ref="point_range_scaled_integer"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="row_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="3470"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="row_minimum">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="temperature">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="18.4"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="time_fields">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="time_stamp_field"/>
+				<xs:element ref="is_Time_Stamp_invalid"/>
+				<xs:element ref="time_Maximum"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="translation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="x"/>
+				<xs:element ref="y"/>
+				<xs:element ref="z"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="color_limits">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="color_red_minimum"/>
+				<xs:element ref="color_red_maximum"/>
+				<xs:element ref="color_green_minimum"/>
+				<xs:element ref="color_green_maximum"/>
+				<xs:element ref="color_blue_minimum"/>
+				<xs:element ref="color_blue_maximum"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="focal_length">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="1.5"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="image_height">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="3471"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="index_bounds">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="row_minimum"/>
+				<xs:element ref="row_maximum"/>
+				<xs:element ref="col_minimum"/>
+				<xs:element ref="col_maximum"/>
+				<xs:element ref="return_minimum"/>
+				<xs:element ref="return_maximum"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="index_fields">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="row_index_field"/>
+				<xs:element ref="row_index_maximum"/>
+				<xs:element ref="column_index_field"/>
+				<xs:element ref="column_index_maximum"/>
+				<xs:element ref="return_index_field"/>
+				<xs:element ref="return_count_field"/>
+				<xs:element ref="return_maximum"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="pixel_height">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="0.007666681778157584"/>
+				<xs:enumeration value="0.0076745772193576565"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="point_fields">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="cartesian_fields"/>
+				<xs:element ref="spherical_fields"/>
+				<xs:element ref="point_range"/>
+				<xs:element ref="angles"/>
+				<xs:element ref="index_fields"/>
+				<xs:element ref="time_fields"/>
+				<xs:element ref="intensity_color_fields"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sensor_model">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="FARO Focus 3D S 120"/>
+				<xs:enumeration value="FARO Focus 3D S210"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="time_Maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="angle_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="angle_minimum">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="range_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="90.929899999999989"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="range_minimum">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="1.6562939999999999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="sensor_vendor">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="FARO Scanner Production GmbH"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="original_guids">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="{G1C4D216-436C-4FC9-9E01-4241264G0911}"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="png_image_size">
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:enumeration value="0"/>
+				<xs:enumeration value="23551883"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="representation">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="spherical"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="return_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="return_minimum">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="acquisition_end">
+		<xs:simpleType>
+			<xs:restriction base="xs:dateTime">
+				<xs:enumeration value="2011-11-02T14:34:32"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="azimuth_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:double">
+				<xs:enumeration value="-6.4112263142845904E-7"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="azimuth_minimum">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="color_red_field" type="xs:boolean"/>
+	<xs:element name="image_mask_size">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="intensity_field" type="xs:boolean"/>
+	<xs:element name="jpeg_image_size">
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:enumeration value="0"/>
+				<xs:enumeration value="23551883"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="row_index_field" type="xs:boolean"/>
+	<xs:element name="sphericalbounds">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="range_minimum"/>
+				<xs:element ref="range_maximum"/>
+				<xs:element ref="elevation_minimum"/>
+				<xs:element ref="elevation_maximum"/>
+				<xs:element ref="azimuth_minimum"/>
+				<xs:element ref="azimuth_maximum"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cartesian_bounds">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="x_minimum"/>
+				<xs:element ref="x_maximum"/>
+				<xs:element ref="y_minimum"/>
+				<xs:element ref="y_maximum"/>
+				<xs:element ref="z_minimum"/>
+				<xs:element ref="z_maximum"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cartesian_fields">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="cartesian_x_field"/>
+				<xs:element ref="cartesian_y_field"/>
+				<xs:element ref="cartesian_z_field"/>
+				<xs:element ref="cartesian_invalid_state_field"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="color_blue_field" type="xs:boolean"/>
+	<xs:element name="intensity_limits">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="intensity_minimum"/>
+				<xs:element ref="intensity_maximum"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="spherical_fields">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="spherical_range_field"/>
+				<xs:element ref="spherical_elevation_field"/>
+				<xs:element ref="spherical_azimuth_field"/>
+				<xs:element ref="spherical_invalid_state_field"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="time_stamp_field" type="xs:boolean"/>
+	<xs:element name="acquisition_start">
+		<xs:simpleType>
+			<xs:restriction base="xs:dateTime">
+				<xs:enumeration value="2011-11-02T13:45:21"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="cartesian_x_field" type="xs:boolean"/>
+	<xs:element name="cartesian_y_field" type="xs:boolean"/>
+	<xs:element name="cartesian_z_field" type="xs:boolean"/>
+	<xs:element name="color_green_field" type="xs:boolean"/>
+	<xs:element name="color_red_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="255"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="color_red_minimum">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="creation_datetime">
+		<xs:simpleType>
+			<xs:restriction base="xs:dateTime">
+				<xs:enumeration value="2011-11-03T19:05:35"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="elevation_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="1.5701933463079427"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="elevation_minimum">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="-1.0909121353667537"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="intensity_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="1"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="intensity_minimum">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="principal_point_x">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="4576"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="principal_point_y">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="1.25"/>
+				<xs:enumeration value="1735"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="relative_humidity">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="23"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="row_index_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:long">
+				<xs:enumeration value="4294967295"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="color_blue_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="255"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="color_blue_minimum">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="column_index_field" type="xs:boolean"/>
+	<xs:element name="return_count_field" type="xs:boolean"/>
+	<xs:element name="return_index_field" type="xs:boolean"/>
+	<xs:element name="color_green_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:short">
+				<xs:enumeration value="255"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="color_green_minimum">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="coordinate_metadata">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="undefined"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="point_range_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="-268.43545499999999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="point_range_minimum">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="268.435454999999999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="acquisition_datetime">
+		<xs:simpleType>
+			<xs:restriction base="xs:dateTime">
+				<xs:enumeration value="2011-11-02T14:34:32"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="angle_scaled_integer">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:enumeration value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="atmospheric_pressure">
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:enumeration value="101325"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="column_index_maximum">
+		<xs:simpleType>
+			<xs:restriction base="xs:long">
+				<xs:enumeration value="4294967295"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="sensor_serial_number">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="XXXY0714889234T"/>
+				<xs:enumeration value="XXY0714889234T"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="is_Time_Stamp_invalid" type="xs:boolean"/>
+	<xs:element name="spherical_range_field" type="xs:boolean"/>
+	<xs:element name="associated_data3D_guid">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="{F0B3C105-325B-4FC9-9E01-3130153F9800}"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="intensity_color_fields">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="intensity_field"/>
+				<xs:element ref="is_intensity_invalid_field"/>
+				<xs:element ref="intensity_scaled_integer"/>
+				<xs:element ref="color_red_field"/>
+				<xs:element ref="color_green_field"/>
+				<xs:element ref="color_blue_field"/>
+				<xs:element ref="is_color_invalid_field"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="is_color_invalid_field" type="xs:boolean"/>
+	<xs:element name="pinhole_representation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="jpeg_image_size"/>
+				<xs:element ref="png_image_size"/>
+				<xs:element ref="image_mask_size"/>
+				<xs:element ref="image_width"/>
+				<xs:element ref="image_height"/>
+				<xs:element ref="focal_length"/>
+				<xs:element ref="pixel_width"/>
+				<xs:element ref="pixel_height"/>
+				<xs:element ref="principal_point_x"/>
+				<xs:element ref="principal_point_y"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sensor_firmware_version">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="&quot;iQLib&quot; 5.0.6.30068"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="sensor_hardware_version">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="3.001.124"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="sensor_software_version">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="4.8.0.23502"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="spherical_azimuth_field" type="xs:boolean"/>
+	<xs:element name="intensity_scaled_integer">
+		<xs:simpleType>
+			<xs:restriction base="xs:decimal">
+				<xs:enumeration value="0.00048851978505129456"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="spherical_representation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="jpeg_image_size"/>
+				<xs:element ref="png_image_size"/>
+				<xs:element ref="image_mask_size"/>
+				<xs:element ref="image_width"/>
+				<xs:element ref="image_height"/>
+				<xs:element ref="pixel_width"/>
+				<xs:element ref="pixel_height"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="spherical_elevation_field" type="xs:boolean"/>
+	<xs:element name="visual_ref_representation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="jpeg_image_size"/>
+				<xs:element ref="png_image_size"/>
+				<xs:element ref="image_mask_size"/>
+				<xs:element ref="image_width"/>
+				<xs:element ref="image_height"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cylindrical_representation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="jpeg_image_size"/>
+				<xs:element ref="png_image_size"/>
+				<xs:element ref="image_mask_size"/>
+				<xs:element ref="image_width"/>
+				<xs:element ref="image_height"/>
+				<xs:element ref="pixel_width"/>
+				<xs:element ref="pixel_height"/>
+				<xs:element ref="radius"/>
+				<xs:element ref="principal_point_y"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="is_intensity_invalid_field" type="xs:boolean"/>
+	<xs:element name="point_range_scaled_integer">
+		<xs:simpleType>
+			<xs:restriction base="xs:double">
+				<xs:enumeration value="0.00000099999999999999995"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="cartesian_invalid_state_field" type="xs:boolean"/>
+	<xs:element name="spherical_invalid_state_field" type="xs:boolean"/>
+</xs:schema>
