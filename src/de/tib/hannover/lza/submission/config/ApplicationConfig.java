@@ -13,8 +13,7 @@ import de.tib.hannover.lza.submission.IeCreation;
 import de.tib.hannover.lza.submission.SipStatusChecker;
 
 /**
- * @author hamanf
- * 
+ * @author Founaboui Haman (c) TIB Hannover
  */
 @Configuration
 @ComponentScan(basePackages = {"de.tib.hannover.lza"})

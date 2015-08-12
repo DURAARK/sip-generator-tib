@@ -55,12 +55,14 @@ public class ActivityManager {
 		StringBuffer returnValue = new StringBuffer("");
 		try {
 			if (checkJobValidity(taskName)) {
+//				The Next Line(s) is not necessary for SIP Generator
 				if (taskName.equals("fullflow")) {
 				
 				} else if (taskName.equals("iecreation")) {
 					returnValue.append(doIeCreationTask(fulltextFolder, ingestFolder, submissionType));
+//					The Next Line(s) is not necessary for SIP Generator
 				} else if (taskName.equals("deposit")) {
-					
+//					The Next Line(s) is not necessary for SIP Generator
 				} else if (taskName.equals("statuscheck")) {
 					
 				}
@@ -227,6 +229,7 @@ public class ActivityManager {
 			ActivityManager ac = new ActivityManager();
 			String sep = File.separator;
 //			 taskName,  userName,  password,	 institution,  producerAgent,  materialFlowId depositSetId,  fulltextFolder,  ingestFolder,	 submissionType,  isTest) {
+//			The "eki" parameter is used because the method uses a function from a previous project which provides all functionality which are needed
 			ac.make("iecreation", "test", "1", "TIB", "35714707", 641084, "1", fulltextFolder, ingest,"eki", false);
 		
 		}

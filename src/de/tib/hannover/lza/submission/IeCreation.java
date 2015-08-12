@@ -7,6 +7,9 @@ import gov.loc.mets.MetsType.FileSec.FileGrp;
 import java.io.File;
 import java.net.FileNameMap;
 import java.net.URLConnection;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -37,6 +40,10 @@ import com.exlibris.dps.sdk.deposit.IEParserFactory;
 
 import de.tib.hannover.lza.submission.util.LzaUtil;
 
+
+/**
+ * @author Martin Barber (c) TIB Hannover
+ */
 public class IeCreation {
 	// to set quietMode
 
@@ -65,6 +72,7 @@ public class IeCreation {
 		String result = "";
 		boolean modifiedMaster;
 		boolean derivative_Copy;
+		boolean error = false;
 
 		LOG.debug("Creation of ie, please wait...");
 
@@ -174,12 +182,13 @@ public class IeCreation {
 										try {
 
 											File buildmfile = new File(file.getAbsolutePath().toString());
-//											try {
-												buidmXml = XmlObject.Factory.parse(buildmfile);
-//											} catch (Exception e) {
-////												buidmFileExsistingerror = true;
-//
-//											}
+											// try {
+											buidmXml = XmlObject.Factory.parse(buildmfile);
+											// } catch (Exception e) {
+											// // buidmFileExsistingerror =
+											// true;
+											//
+											// }
 
 											// System.out.println(file.getAbsolutePath().toString());
 											JAXBContext jaxbContext = JAXBContext.newInstance(generated_buildm.Buildm.class);
@@ -202,7 +211,7 @@ public class IeCreation {
 										// try {
 										//
 										File e57mfile = new File(file.getAbsolutePath().toString());
-										 e57Xml = XmlObject.Factory.parse(e57mfile);
+										e57Xml = XmlObject.Factory.parse(e57mfile);
 										// e57FileExsisting = true;
 										ie.setIeSourceMd(gov.loc.mets.MdSecType.MdWrap.MDTYPE.OTHER, e57Xml);
 
@@ -235,7 +244,7 @@ public class IeCreation {
 
 						}
 
-						// i changed it from the above to the bellow to take
+						// changed it from the above to the bellow to take
 						// into consideration the files in sub directories.
 						@SuppressWarnings("unchecked")
 						Collection<File> files = FileUtils.listFiles(streamsDir, TrueFileFilter.INSTANCE, TrueFileFilter.INSTANCE);
@@ -257,7 +266,7 @@ public class IeCreation {
 
 							String identifier;
 							String creator;
-							String date;
+							String date = null;
 							String isPartOf;
 							String hasPart;
 							String description;
@@ -287,18 +296,27 @@ public class IeCreation {
 								creator = buildm.getDigitalObject().getCreator();
 								title = buildm.getDigitalObject().getName();
 								date = buildm.getDigitalObject().getDateCreated().toString();
+
+								// try {
+								// java.util.Date temp = new
+								// SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+								// .parse(buildm.getDigitalObject().getDateCreated().toString());
+								//
+								// DateFormat dateFormat = new
+								// SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+								// date = dateFormat.format(temp);
+								// }
+								// catch (ParseException e){
+								// System.out.println(e);
+								//
+								// }
+								//
 								isPartOf = buildm.getDigitalObject().getIsPartOf();
 								hasPart = buildm.getDigitalObject().getHasPart();
 								description = buildm.getDigitalObject().getDescription();
 							}
 
-							// String creator = "test";
-							// String title = "test";
-							// String date = "test";
-							// String isPartOf = "test";
-							// String hasPart = "test";
-							// String description = "test";
-
+							
 							if (identifier != null && StringUtils.isNotEmpty(identifier))
 								dc.addElement("dc:Identifier", identifier);
 
@@ -307,6 +325,9 @@ public class IeCreation {
 
 							if (title != null && StringUtils.isNotEmpty(title))
 								dc.addElement("dc:title", title);
+
+							if (date == null && StringUtils.isNotEmpty(date))
+								dc.addElement("dc:date", "xml element dateCreated is missing");
 
 							if (date != null && StringUtils.isNotEmpty(date))
 								dc.addElement("dc:date", date);
@@ -442,8 +463,6 @@ public class IeCreation {
 									}
 									if (canolicalPath.contains("_MASTER") | canolicalPath.contains("_master")) {
 
-									
-
 										// ParamterPath TIB internal
 										ArrayList<String> data = new ArrayList<String>(Arrays.asList((file.getAbsolutePath().split("output"))));
 										String tibPath = data.get(data.size() - 1);
@@ -471,8 +490,6 @@ public class IeCreation {
 
 										if (canolicalPath.contains("_COPY") | canolicalPath.contains("_copy")) {
 
-										
-
 											// ParamterPath TIB internal
 											ArrayList<String> data = new ArrayList<String>(Arrays.asList((file.getAbsolutePath().split("output"))));
 											String tibPath = data.get(data.size() - 1);
@@ -486,8 +503,6 @@ public class IeCreation {
 										}
 									} else {
 										if (canolicalPath.contains("_COPY") | canolicalPath.contains("_copy")) {
-
-											
 
 											// ParamterPath TIB internal
 											ArrayList<String> data = new ArrayList<String>(Arrays.asList((file.getAbsolutePath().split("output"))));
@@ -535,8 +550,7 @@ public class IeCreation {
 								}
 							}
 
-							// CMS mit dem anderen dh geht es steht dann aber an
-							// der falschen stelle...
+							
 							DnxDocument ieDnx = DnxDocumentFactory.getInstance().createDnxDocument();
 							DnxDocumentHelper ieDnxHelper = new DnxDocumentHelper(ieDnx);
 							// update DNX
@@ -555,24 +569,32 @@ public class IeCreation {
 							DnxDocumentHelper ieDnxHelper1 = new DnxDocumentHelper(ieDnx1);
 							// update DNX
 
-							
-
 							DnxDocument modsDnx2 = ie.getIeDnx();
 
 							ie.setIeDnx(modsDnx2);
 
-							
 							// if(LOG.isInfoEnabled())
 							// LOG.info("The streams folder, before checkum: " +
 							// streamsFolder);
+							
+							// MD5 implementation in tested and implemented in next
+							// release
+							// DnxDocument dnx =
+							// ie.getIeDnx().getDnxDocumentForSourceMd();
+							// String fixityAgent = "fileFixity";
+							// String fixityType ="MD5";
+							// String md5 =
+							// org.apache.commons.codec.digest.DigestUtils.md5Hex(streamsFolder);
+							// dnx.setFileFixity(fixityAgent , fixityType , md5
+							// );
+							// ie.setIeDnx(dnx);
 
 							// file://Relative Path:
 							// ie.generateChecksum(streamsFolder,
 							// Enum.FixityType.MD5.toString());
 
 							// file://canolicalPath
-							// ie.generateChecksum("",
-							// Enum.FixityType.MD5.toString());
+							// ie.generateChecksum("",Enum.FixityType.MD5.toString());
 
 							// Relative Path:/
 							// System.out.println("streamfolder:"+streamsFolder.toString());
@@ -591,27 +613,7 @@ public class IeCreation {
 							// }
 							// example for adding a logical Struct Map.
 							MetsDocument metsDoc = MetsDocument.Factory.parse(ie.toXML());
-							// Mets mets = metsDoc.getMets();
-							// for (FileGrp fgrp : fGrpList) {
-							// StructMapType sm = mets.addNewStructMap();
-							// sm.setID(fgrp.getID() + "-" + 2);
-							// sm.setTYPE("PHYSICAL");
-							// DivType div1 = sm.addNewDiv();
-							// div1.setLABEL("ActivityManager Struct Map");
-							// DivType div2 = div1.addNewDiv();
-							// div2.setLABEL("Table of Contents");
-							// DivType div3 = div2.addNewDiv();
-							// div3.setLABEL("Chapter 1");
-							// FileType file[] = fgrp.getFileArray();
-							// for (int i = 0; i < file.length; i++) {
-							// DivType div = div3.addNewDiv(); // new div
-							// structure
-							// div.setLABEL("Page " + i);
-							// div.setTYPE("FILE");
-							// div.addNewFptr().setFILEID(file[i].getID());
-							// }
-							// }
-							// insert IE created in content directory
+
 							File ieXML = new File(iefullFileName);
 							XmlOptions xmlOptions = new XmlOptions();
 							xmlOptions.setSavePrettyPrint();
@@ -621,8 +623,17 @@ public class IeCreation {
 						}
 
 					} catch (Exception e) {
-						// LOG.error("ERROR", e);
+						// LOG.error("ERROR", e)
+						System.out.println(ekiDirectory);
+						;
+						System.out.println(e);
 						result = MessagesCodes.IE_ERROR_IECREATION;
+						System.out.println("-------------------------------------------------------");
+						System.out.println("IE_ERROR_IECREATION");
+						System.out.println("-------------------------------------------------------");
+						error = true;
+						
+
 					}
 				}
 			}
@@ -631,7 +642,9 @@ public class IeCreation {
 		System.out.println("-------------------------------------------------------");
 		System.out.println("Done in " + runningTime / 1000 + " sec's");
 		System.out.println("-------------------------------------------------------");
-
+		if (error == true) {
+			result = MessagesCodes.IE_ERROR_IECREATION;
+		}
 		return result;
 
 	}
